@@ -117,6 +117,35 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def kick(ctx, member: discord.Member, *, reason=None):
+    await member.kick(reason=reason)
+    msg = f"{member} was kicked."
+    if reason:
+        msg += f" Reason: {reason}"
+    await ctx.send(msg)
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def ban(ctx, member: discord.Member, *, reason=None):
+    await member.ban(reason=reason)
+    msg = f"{member} was banned."
+    if reason:
+        msg += f" Reason: {reason}"
+    await ctx.send(msg)
+
+@bot.command()
+@commands.has_permissions(administrator=True)
+async def mute(ctx, member: discord.Member, *, reason=None):
+    duration = discord.utils.utcnow() + discord.timedelta(minutes=10)
+    await member.edit(timeout=duration, reason=reason)
+    msg = f"{member} was muted for 10 minutes."
+    if reason:
+        msg += f" Reason: {reason}"
+    await ctx.send(msg)
+
+
 
 @bot.command()
 async def info(ctx):
