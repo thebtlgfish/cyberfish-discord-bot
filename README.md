@@ -18,7 +18,7 @@ If You Are Using The Webhook Feature, Follow These Steps:
 - Edit The discord_webhook.py file and change the webhook bots image and username to your liking as well as change the website to check and the interval (set at one day by default and measured in seconds)
 - Put Your Discord Webhook Url In the .env file
 - Run The Bot with python3 bot.py
-- If you are the onwer, when the bot is online run the "!startmonitor" command and it will send the webhook at the given interval.
+- If you are the onwer, when the bot is online run the "!startmonitor" command and it will send the webhook at the given interval (measured in seconds).
 
 
 ### Another Thing
